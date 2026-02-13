@@ -4,8 +4,7 @@
 
 It automates the manual workflow described in `AGENTS.md` and follows the Bayesian inference framework described in:
 
-- *Probabilistic inference of short-term synaptic plasticity in neocortical microcircuits* (Costa et al., local copy: `../Costa, et. al.pdf`)
-
+- *Probabilistic inference of short-term synaptic plasticity in neocortical microcircuits* (Costa et al., 2013)
 ## What BaISP Does
 
 BaISP runs 4 steps end-to-end:
@@ -169,7 +168,3 @@ Try with a small subset first and verify one run end-to-end.
 - `noise_fitting_step.py`: step 3
 - `mcmc_step.py`: step 4
 - `utils.py`: shared utilities
-
-## Citation
-
-If you use BaISP in research, cite the Costa et al. paper above and describe your exact pipeline settings (frequency, preprocessing row removal, selected noise model, MCMC settings).
