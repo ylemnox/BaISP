@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+matplotlib
+h5py
+pyyaml
+pymc
+arviz
+pytensor
+
+streamlit

@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Local environments
+.venv/
+
+# Generated outputs
+output/
+*.png
+temp.py
+
+# OS files
+.DS_Store
