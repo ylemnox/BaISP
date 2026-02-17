@@ -1,5 +1,5 @@
 # BaISP
-<img src="/logo.png.png" width="170" align="right">
+<img src="/logo.png" width="170" align="right">
 
 **BaISP** (Bayesian Inference of Synaptic Plasticity) is an interactive pipeline for short-term synaptic plasticity (STP) analysis from `.mat` files.
 
