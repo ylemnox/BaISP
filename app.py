@@ -83,6 +83,12 @@ def apply_ui_style_overrides() -> None:
             margin-top: 4px;
             line-height: 1.2;
         }
+        .baisp-author {
+            font-size: 0.95rem;
+            color: #777;
+            margin-top: 2px;
+            line-height: 1.2;
+        }
         </style>
         """,
         unsafe_allow_html=True,
@@ -102,6 +108,7 @@ def render_header() -> None:
                 <div class="baisp-titles">
                     <div class="baisp-title">BaISP</div>
                     <div class="baisp-subtitle">Bayesian Inference of Synaptic Plasticity</div>
+                    <div class="baisp-author">Created by ylemnox | Assisted by CodeX</div>
                 </div>
             </div>
             """,
