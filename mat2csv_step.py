@@ -123,7 +123,7 @@ def mat2csv_step(mat_input_dir: str, output_csv_path: str, frequency_hz: float, 
         mat_data = load_mat_file(mat_path, variable_names=["amp_avg", "recovery_amp"])
         spike_times, epsp_values = _build_experiment_series(mat_data, frequency_hz)
 
-        col_name = Path(mat_path).name
+        col_name = Path(mat_path).stem
         series = pd.Series(epsp_values, index=spike_times, name=col_name)
         series_list.append(series)
 

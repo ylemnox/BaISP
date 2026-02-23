@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+import base64
 from typing import Dict, List, Tuple
 
 import numpy as np
@@ -43,6 +44,9 @@ def apply_ui_style_overrides() -> None:
         [data-testid="stCaptionContainer"] p {
             font-size: 16px !important;
         }
+        [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+            font-size: 18px !important;
+        }
         .stAlert p {
             font-size: 18px !important;
             line-height: 1.4;
@@ -52,10 +56,60 @@ def apply_ui_style_overrides() -> None:
         [data-testid="stBaseButton-primary"] {
             font-size: 16px !important;
         }
+        [data-testid="stSidebar"] * {
+            font-size: 1.1rem !important;
+            line-height: 1.3 !important;
+        }
+        .baisp-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.25rem;
+        }
+        .baisp-logo {
+            height: 88px;
+            width: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        .baisp-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .baisp-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 4px;
+            line-height: 1.2;
+        }
         </style>
         """,
         unsafe_allow_html=True,
     )
+
+
+def render_header() -> None:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    logo_path = os.path.join(script_dir, "logo.png")
+    if os.path.exists(logo_path):
+        with open(logo_path, "rb") as f:
+            encoded = base64.b64encode(f.read()).decode("ascii")
+        st.markdown(
+            f"""
+            <div class="baisp-header">
+                <img class="baisp-logo" src="data:image/png;base64,{encoded}" />
+                <div class="baisp-titles">
+                    <div class="baisp-title">BaISP</div>
+                    <div class="baisp-subtitle">Bayesian Inference of Synaptic Plasticity</div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    else:
+        st.title("BaISP")
+        st.caption("Bayesian Inference of Synaptic Plasticity")
 
 
 def normalize_path(raw: str) -> str:
@@ -452,8 +506,7 @@ def main() -> None:
     init_state()
     defaults = default_paths()
 
-    st.title("BaISP")
-    st.caption("Bayesian Inference of Synaptic Plasticity")
+    render_header()
 
     with st.sidebar:
         st.header("Inputs")
